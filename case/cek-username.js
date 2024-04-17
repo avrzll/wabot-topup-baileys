@@ -1,17 +1,38 @@
 const { react } = require("../utils/reaction");
 const axios = require("axios");
-require("../conf")
+require("../conf");
 
-const reply = async (sock, msg, text) => {
-  await sock.sendMessage(msg.key.remoteJid, { text: text }, { quoted: msg });
-};
+const getUserFF = async (idPlayer, sock, m) => {
+  const reply = async (text) => {
+    await sock.sendMessage(m.key.remoteJid, { text: text }, { quoted: m });
+  };
 
-function getUserFF(idPlayer, socket, msg) {
+  react(m, sock, "🕒");
+
   const requestData = {
     game: "freefire",
-    id: "1685084111",
-    apikey: "",
+    id: idPlayer,
+    apikey: global.velixs,
   };
-}
+
+  try {
+    axios
+      .post("https://api.velixs.com/idgames-checker", requestData)
+      .then(async (response) => {
+        if (response.status) {
+          const username = response.data.data.username;
+          await react(m, sock, "✅");
+          await reply(username);
+        }
+      })
+      .catch(async () => {
+        await react(m, sock, "❌");
+        await reply("Username tidak ditemukan !");
+      });
+  } catch (e) {
+    await react(m, sock, "❌");
+    await reply(e.toString());
+  }
+};
 
 module.exports = { getUserFF };
