@@ -1,0 +1,24 @@
+{
+  "name": "wabot-ws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@develoka/angka-rupiah-js": "^1.0.3",
+    "@whiskeysockets/baileys": "^6.4.0",
+    "axios": "^1.6.5",
+    "chalk": "^2.4.2",
+    "form-data": "^4.0.0",
+    "jimp": "^0.16.13",
+    "link-preview-js": "^3.0.5",
+    "moment-timezone": "^0.5.44",
+    "node-fetch": "^3.3.2",
+    "performance-now": "^2.1.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
