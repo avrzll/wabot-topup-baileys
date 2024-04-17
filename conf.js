@@ -3,8 +3,8 @@ global.calender = date.toLocaleDateString("id");
 
 global.prefix = [".", "!", "$", ""];
 
-global.apikey = "GANTI_APIKEY";
-global.velixs = "GANTI_APIKEY";
+global.apikey = "jtBDt7yxvFVpyrXAsj4NLXU7YrvJ";
+global.velixs = "d020fa154891945652bce72992bde099adbd83f9bead534152";
 
 global.own = ["6285174422041", "6285174418180", "6285648329043"];
 global.reseller = ["6285604642287"];
