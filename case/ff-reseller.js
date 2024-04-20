@@ -51,49 +51,52 @@ module.exports = orderFFReseller = async (
 
   let id;
 
-  switch (idProduk) {
-    case "5":
-      id = "1051";
-      break;
-    case "20":
-      id = "1048";
-      break;
-    case "50":
-      id = "1044";
-      break;
-    case "70":
-      id = "1041";
-      break;
-    case "100":
-      id = "1037";
-      break;
-    case "140":
-      id = "1034";
-      break;
-    case "210":
-      id = "1027";
-      break;
-    case "355":
-      id = "1022";
-      break;
-    case "720":
-      id = "1004";
-      break;
-    case "BPC":
-      id = "929";
-      break;
-    case "LUP":
-      id = "928";
-      break;
-    case "MM":
-      id = "926";
-      break;
-    case "MB":
-      id = "927";
-      break;
-    default:
-      break;
-  }
+    switch (idProduk) {
+      case "5":
+        id = "66";
+        break;
+      case "20":
+        id = "69";
+        break;
+      case "25":
+        id = "70";
+        break;
+      case "50":
+        id = "73";
+        break;
+      case "70":
+        id = "75";
+        break;
+      case "100":
+        id = "79";
+        break;
+      case "140":
+        id = "81";
+        break;
+      case "210":
+        id = "87";
+        break;
+      case "355":
+        id = "95";
+        break;
+      case "500":
+        id = "102";
+        break;
+      case "720":
+        id = "112";
+        break;
+      case "BPC":
+        id = "93";
+        break;
+      case "MM":
+        id = "88";
+        break;
+      case "MB":
+        id = "89";
+        break;
+      default:
+        break;
+    }
 
   const apiData = new FormData();
   apiData.append("api_key", global.apikey);

@@ -66,58 +66,46 @@ async function orderFF(idProduk, idPlayer, sender, msg, socket) {
 
   switch (idProduk) {
     case "5":
-      id = "1051";
+      id = "66";
       break;
     case "20":
-      id = "1048";
+      id = "69";
+      break;
+    case "25":
+      id = "70";
       break;
     case "50":
-      id = "1044";
+      id = "73";
       break;
     case "70":
-      id = "1041";
+      id = "75";
       break;
     case "100":
-      id = "1037";
+      id = "79";
       break;
     case "140":
-      id = "1034";
+      id = "81";
       break;
     case "210":
-      id = "1027";
+      id = "87";
       break;
     case "355":
-      id = "1022";
+      id = "95";
       break;
     case "500":
-      id = "1015";
+      id = "102";
       break;
     case "720":
-      id = "1004";
-      break;
-    case "860":
-      id = "998";
-      break;
-    case "1000":
-      id = "880";
-      break;
-    case "1440":
-      id = "872";
-      break;
-    case "2000":
-      id = "865";
+      id = "112";
       break;
     case "BPC":
-      id = "929";
-      break;
-    case "LUP":
-      id = "928";
+      id = "93";
       break;
     case "MM":
-      id = "926";
+      id = "88";
       break;
     case "MB":
-      id = "927";
+      id = "89";
       break;
     default:
       break;

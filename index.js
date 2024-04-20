@@ -30,6 +30,7 @@ const pricelistReseller = require("./case/pricelist-reseller");
 const deposit = require("./case/deposit");
 const dateTimeId = require("./utils/dateTimeId");
 const toRupiah = require("@develoka/angka-rupiah-js");
+const menu = require("./case/menu");
 
 async function connectToWhatsapp() {
   const auth = await useMultiFileAuthState("sessions");
@@ -127,20 +128,7 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
       //========================= CASE MENU / HELP =========================//
       case "menu":
       case "help":
-        const menu = `*MENU*
-    ━━━━━━━━━━━━━━━━━━
-    Owner: [ 085174422041 ]
-    ━━━━━━━━━━━━━━━━━━
-    Info: Bot ini dibuat dari awal banget, jadi masih dalam tahap pengembangan & fitur masih sangat sedikit...
-    Mohon maaf jika masih ada bug :v
-    ━━━━━━━━━━━━━━━━━━
-    Berikut list menunya:
-    .cekff [id player]
-    .ff [id player] [jumlah order]
-    .cekstatus [ID Transaksi]
-    .pricelist-ress
-    .rff [id player] [jumlah order]`;
-        await sock.sendMessage(sender, { text: menu }, { quoted: global.fq });
+        menu(m, sock);
         break;
       //========================== CASE CEK ID FF ==========================//
       case "cekff":
@@ -244,7 +232,7 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
           textMsg.toLowerCase() === "kurangisaldo" ||
           textMsg.toLowerCase() === `${prefix}kurangisaldo`
         ) {
-          reply("Mana argumennya?\nCth: .kurangisaldo 6285174422041 1000+");
+          reply("Mana argumennya?\nCth: .kurangisaldo 6285174422041 1000");
         } else {
           userId = textMsg.split(" ")[1];
           jml = textMsg.split(" ")[2];

@@ -43,6 +43,7 @@ module.exports = daftar = (msg, sock) => {
         nama: namaUser,
         noHp: noHp,
         saldo: 0,
+        level: "member",
       };
 
       // add new usr

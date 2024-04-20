@@ -4,25 +4,29 @@
       "id": "6285604642287",
       "nama": "Myynn",
       "noHp": "6285604642287",
-      "saldo": 0
+      "saldo": 0,
+      "level": "reseller"
     },
     {
       "id": "6285648329043",
-      "nama": "Supiyah",
+      "nama": "Supiya",
       "noHp": "6285648329043",
-      "saldo": 0
-    },
-    {
-      "id": "6285174422041",
-      "nama": "Rendd",
-      "noHp": "6285174422041",
-      "saldo": 0
+      "saldo": 0,
+      "level": "owner"
     },
     {
       "id": "6285174418180",
       "nama": "YOGSSTORE",
       "noHp": "6285174418180",
-      "saldo": 0
+      "saldo": 0,
+      "level": "member"
+    },
+    {
+      "id": "6285174422041",
+      "nama": "Rennd",
+      "noHp": "6285174422041",
+      "saldo": 0,
+      "level": "owner"
     }
   ]
 }
