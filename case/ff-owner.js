@@ -68,6 +68,9 @@ async function orderFF(idProduk, idPlayer, sender, msg, socket) {
     case "5":
       id = "66";
       break;
+    case "10":
+      id = "67";
+      break;
     case "20":
       id = "69";
       break;

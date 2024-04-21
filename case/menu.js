@@ -2,23 +2,6 @@ const fs = require("fs");
 const toRupiah = require("@develoka/angka-rupiah-js");
 const moment = require("moment-timezone");
 require("moment/locale/id");
-const timezone = moment.tz("Asia/Jakarta");
-const formatJam = "HH:mm:ss";
-const jam = timezone.format(formatJam);
-
-let ucapan;
-
-if (jam >= "04:00:00" && jam < "12:00:00") {
-  ucapan = "Selamat pagi 🌄";
-} else if (jam >= "12:00:00" && jam < "15:00:00") {
-  ucapan = "Selamat siang 🌤️";
-} else if (jam >= "15:00:00" && jam < "18:00:00") {
-  ucapan = "Selamat sore 🌇";
-} else if (jam >= "18:00:00" && jam < "24:00:00") {
-  ucapan = "Selamat malam 🌃";
-} else {
-  ucapan = "Jangan lupa istirahat 🛌";
-}
 
 const readFile = () => {
   try {
@@ -34,6 +17,24 @@ module.exports = menu = async (m, sock) => {
   let saldo;
   let level;
   const id = m.key.remoteJid;
+
+  const timezone = moment.tz("Asia/Jakarta");
+  const formatJam = "HH:mm:ss";
+  const jam = timezone.format(formatJam);
+
+  let ucapan;
+
+  if (jam >= "04:00:00" && jam < "12:00:00") {
+    ucapan = "Selamat pagi 🌄";
+  } else if (jam >= "12:00:00" && jam < "15:00:00") {
+    ucapan = "Selamat siang 🌤️";
+  } else if (jam >= "15:00:00" && jam < "18:00:00") {
+    ucapan = "Selamat sore 🌇";
+  } else if (jam >= "18:00:00" && jam < "24:00:00") {
+    ucapan = "Selamat malam 🌃";
+  } else {
+    ucapan = "Jangan lupa istirahat 🛌";
+  }
 
   try {
     const saldoData = readFile();
@@ -70,8 +71,8 @@ Halo ${m.pushName}, ${ucapan}
 : ̗̀➛ .pricelist-ress Ⓡ
 
 ✦ *LAINNYA* ✦
-: ̗̀➛ .ping ⓜ
-: ̗̀➛ .runtime ⓜ
+: ̗̀➛ .ping 
+: ̗̀➛ .runtime 
 `;
 
       await sock.sendMessage(m.key.remoteJid, { text: text }, { quoted: m });
