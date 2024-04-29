@@ -28,7 +28,7 @@ const getUserFF = async (idPlayer, sock, m) => {
       await reply("Username tidak ditemukan !");
     }
   } catch (error) {
-    console.error("Error:", error.response.data);
+    console.error("Error:", error);
     await react(m, sock, "⚠️");
     await reply("Terdapat beberapa eror, cek log sistem !");
   }
