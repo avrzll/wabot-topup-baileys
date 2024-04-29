@@ -9,29 +9,28 @@ const getUserFF = async (idPlayer, sock, m) => {
 
   react(m, sock, "🕒");
 
-  const requestData = {
+  const url = "https://api.velixs.com/idgames-checker";
+  const body = {
     game: "freefire",
     id: idPlayer,
     apikey: global.velixs,
   };
 
   try {
-    axios
-      .post("https://api.velixs.com/idgames-checker", requestData)
-      .then(async (response) => {
-        if (response.status) {
-          const username = response.data.data.username;
-          await react(m, sock, "✅");
-          await reply(username);
-        }
-      })
-      .catch(async () => {
-        await react(m, sock, "❌");
-        await reply("Username tidak ditemukan !");
-      });
-  } catch (e) {
-    await react(m, sock, "❌");
-    await reply(e.toString());
+    const response = await axios.post(url, body);
+    // console.log(response.data);
+    if (response.data.status) {
+      const username = response.data.data.username;
+      await react(m, sock, "✅");
+      await reply(username);
+    } else {
+      await react(m, sock, "❌");
+      await reply("Username tidak ditemukan !");
+    }
+  } catch (error) {
+    console.error("Error:", error.response.data);
+    await react(m, sock, "⚠️");
+    await reply("Terdapat beberapa eror, cek log sistem !");
   }
 };
 
