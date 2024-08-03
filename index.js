@@ -14,7 +14,7 @@ const {
 } = require("./utils/saldoManager");
 const { setInterval } = require("timers");
 const { getJid, getName, sendMedia } = require("./utils/msgFunc");
-const { getUserFF } = require("./case/cek-username");
+const { getUserFF, getUserML } = require("./case/cek-username");
 const { react } = require("./utils/reaction");
 const { boot } = require("./utils/boot");
 const { orderFF } = require("./case/ff-owner");
@@ -33,7 +33,7 @@ const toRupiah = require("@develoka/angka-rupiah-js");
 const menu = require("./case/menu");
 
 async function connectToWhatsapp() {
-  const auth = await useMultiFileAuthState("sessions");
+  const auth = await useMultiFileAuthState("database/auth");
   const sock = makeWASocket({
     printQRInTerminal: true,
     browser: Browsers.macOS("Nishimura"),
@@ -130,6 +130,7 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
       case "help":
         menu(m, sock);
         break;
+
       //========================== CASE CEK ID FF ==========================//
       case "cekff":
         if (
@@ -140,6 +141,20 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
         } else {
           const idPlayer = textMsg.split(" ")[1];
           getUserFF(idPlayer, sock, m);
+        }
+        break;
+
+        //========================== CASE CEK ID ML ==========================//
+      case "cekml":
+        if (
+          textMsg.toLowerCase() === `${prefix}cekml` ||
+          textMsg.toLowerCase() === "cekml"
+        ) {
+          reply(`Lengkapi format nya.\n\nContoh: .cekml 157228049 2241`);
+        } else {
+          const player_id = textMsg.split(" ")[1];
+          const zone_id = textMsg.split(" ")[2];
+          getUserML(player_id, zone_id, sock, m)
         }
         break;
 

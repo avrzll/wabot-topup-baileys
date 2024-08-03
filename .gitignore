@@ -1,4 +1,6 @@
 /.npm
 /node_modules
-/sessions
+/database/auth
+/test
 /conf.js
+/nodemon.json
