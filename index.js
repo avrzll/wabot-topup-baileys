@@ -31,10 +31,11 @@ const deposit = require("./case/deposit");
 const dateTimeId = require("./utils/dateTimeId");
 const toRupiah = require("@develoka/angka-rupiah-js");
 const menu = require("./case/menu");
+const { orderML } = require("./case/ml-owner");
 
 async function connectToWhatsapp() {
   const auth = await useMultiFileAuthState("database/auth");
-       const sock = makeWASocket({
+  const sock = makeWASocket({
     printQRInTerminal: true,
     browser: Browsers.macOS("Nishimura"),
     auth: auth.state,
@@ -144,7 +145,7 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
         }
         break;
 
-        //========================== CASE CEK ID ML ==========================//
+      //========================== CASE CEK ID ML ==========================//
       case "cekml":
         if (
           textMsg.toLowerCase() === `${prefix}cekml` ||
@@ -154,7 +155,7 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
         } else {
           const player_id = textMsg.split(" ")[1];
           const zone_id = textMsg.split(" ")[2];
-          getUserML(player_id, zone_id, sock, m)
+          getUserML(player_id, zone_id, sock, m);
         }
         break;
 
@@ -170,12 +171,34 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
           textMsg.toLowerCase() === `${prefix}ff`
         ) {
           reply(
-            `Mau top up berapa ? dan mana ID nya ?\n\nFormat : FF [id_player] [jumlah_order]\n\nContoh 1 : FF 6464331474 140 \nContoh 2 : FF 6464331474 MM`
+            `Mau top up berapa ? dan mana ID nya ?\n\nFormat : FF [kode] [id_player] \n\nContoh 1 : FF 140 6464331474 \nContoh 2 : FF MM 6464331474`
           );
         } else {
           const idPlayer = textMsg.split(" ")[1];
           const idProduct = textMsg.split(" ")[2];
           orderFF(idProduct.toUpperCase(), idPlayer, sender, m, sock);
+        }
+        break;
+
+      //========================== CASE TOPUP FF ==========================//
+      case "ml":
+        if (!owner.includes(someone)) {
+          reply(
+            "Mohon maaf, sementara fitur ini hanya boleh digunakan oleh owner YOGSSTORE"
+          );
+          return;
+        } else if (
+          textMsg.toLowerCase() === "ml" ||
+          textMsg.toLowerCase() === `${prefix}ml`
+        ) {
+          reply(
+            `Mau top up berapa ? dan mana ID nya ?\n\nFormat : ML [kode] [id_player] [id_zona]\n\nContoh 1 : ML 5 6464331474 15140`
+          );
+        } else {
+          const idProduct = textMsg.split(" ")[1];
+          const idPlayer = textMsg.split(" ")[2];
+          const idZona = textMsg.split(" ")[3];
+          orderML(idProduct.toUpperCase(), idPlayer, idZona, sender, m, sock);
         }
         break;
 
