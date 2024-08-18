@@ -3,7 +3,7 @@ global.calender = date.toLocaleDateString("id");
 
 global.prefix = [".", "!", "$", ""];
 
-global.apikey = "jtBDt7yxvFVpyrXAsj4NLXU7YrvJ"; // https://duniatopupgames.com/
+global.apikey = "GANTI_API_KEY"; // https://duniatopupgames.com/
 global.velixs = "GANTI_API_KEY"; // https://velixs.com/
 
 global.own = ["6285174422041", "6285174418180", "6285648329043"];
