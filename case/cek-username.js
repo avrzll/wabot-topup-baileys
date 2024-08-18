@@ -34,8 +34,6 @@ const getUserFF = async (idPlayer, sock, m) => {
   }
 };
 
-
-
 const getUserML = async (player_id, zone_id, sock, m) => {
   const reply = async (text) => {
     await sock.sendMessage(m.key.remoteJid, { text: text }, { quoted: m });
@@ -46,8 +44,8 @@ const getUserML = async (player_id, zone_id, sock, m) => {
   const url = "https://api.velixs.com/idgames-checker";
   const body = {
     game: "ml",
-    "id": player_id,
-    "zoneid": zone_id,
+    id: player_id,
+    zoneid: zone_id,
     apikey: global.velixs,
   };
 
@@ -68,6 +66,5 @@ const getUserML = async (player_id, zone_id, sock, m) => {
     await reply("Terdapat beberapa eror, cek log sistem ! " + error);
   }
 };
-
 
 module.exports = { getUserFF, getUserML };

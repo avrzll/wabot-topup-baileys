@@ -34,7 +34,7 @@ const menu = require("./case/menu");
 
 async function connectToWhatsapp() {
   const auth = await useMultiFileAuthState("database/auth");
-  const sock = makeWASocket({
+       const sock = makeWASocket({
     printQRInTerminal: true,
     browser: Browsers.macOS("Nishimura"),
     auth: auth.state,

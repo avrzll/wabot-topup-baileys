@@ -47,4 +47,24 @@ const getPriceFF = async (kodeProduk) => {
   }
 };
 
-module.exports = { getPriceFF };
+const getPriceML = async (kodeProduk) => {
+  try {
+    const res = await fetch(apiUrl, {
+      method: "POST",
+      body: apiData,
+    });
+    data = await res.json();
+
+    const filteredData = data.data.filter(
+      (items) => items.games === "Mobile Legends" && items.id === kodeProduk
+    );
+    // console.log(filteredData);
+
+    const result = parseInt(filteredData[0].price["gold"]);
+    return result;
+  } catch (err) {
+    console.error(`Get price error: ${err}`);
+  }
+};
+
+module.exports = { getPriceFF, getPriceML };
