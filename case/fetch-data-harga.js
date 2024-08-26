@@ -43,7 +43,7 @@ const getPriceFF = async (kodeProduk) => {
     const result = parseInt(filteredData[0].price["gold"]);
     return result;
   } catch (err) {
-    console.error(`Get price error: ${err}`);
+    console.error(`Get price FF error: ${err}`);
   }
 };
 
@@ -56,14 +56,17 @@ const getPriceML = async (kodeProduk) => {
     data = await res.json();
 
     const filteredData = data.data.filter(
-      (items) => items.games === "Mobile Legends" && items.id === kodeProduk
+      (items) => items.games === "Mobile Legends"
+      // && items.id === "178"
     );
-    // console.log(filteredData);
+    console.log(filteredData);
 
-    const result = parseInt(filteredData[0].price["gold"]);
-    return result;
+    // const result = parseInt(filteredData[0].price["gold"]);
+    // return result;
   } catch (err) {
-    console.error(`Get price error: ${err}`);
+    console.log(err);
+
+    console.error(`Get price ML error: ${err}`);
   }
 };
 

@@ -89,7 +89,6 @@ async function orderFF(idProduk, idPlayer, sender, msg, socket) {
 
   const harga = await getPriceFF(id);
   const userId = sender.split("@")[0];
-  // console.log(harga);
 
   let data;
   let pesan;

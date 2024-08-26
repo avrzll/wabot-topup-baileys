@@ -174,32 +174,33 @@ ${chalk.blue("=> In")} ${chalk.green(sender)}
             `Mau top up berapa ? dan mana ID nya ?\n\nFormat : FF [kode] [id_player] \n\nContoh 1 : FF 140 6464331474 \nContoh 2 : FF MM 6464331474`
           );
         } else {
-          const idPlayer = textMsg.split(" ")[1];
-          const idProduct = textMsg.split(" ")[2];
+          const idProduct = textMsg.split(" ")[1];
+          const idPlayer = textMsg.split(" ")[2];
           orderFF(idProduct.toUpperCase(), idPlayer, sender, m, sock);
         }
         break;
 
       //========================== CASE TOPUP FF ==========================//
       case "ml":
-        if (!owner.includes(someone)) {
-          reply(
-            "Mohon maaf, sementara fitur ini hanya boleh digunakan oleh owner YOGSSTORE"
-          );
-          return;
-        } else if (
-          textMsg.toLowerCase() === "ml" ||
-          textMsg.toLowerCase() === `${prefix}ml`
-        ) {
-          reply(
-            `Mau top up berapa ? dan mana ID nya ?\n\nFormat : ML [kode] [id_player] [id_zona]\n\nContoh 1 : ML 5 6464331474 15140`
-          );
-        } else {
-          const idProduct = textMsg.split(" ")[1];
-          const idPlayer = textMsg.split(" ")[2];
-          const idZona = textMsg.split(" ")[3];
-          orderML(idProduct.toUpperCase(), idPlayer, idZona, sender, m, sock);
-        }
+        reply("Mohon maaf, fitur terdapat eror!");
+        // if (!owner.includes(someone)) {
+        //   reply(
+        //     "Mohon maaf, sementara fitur ini hanya boleh digunakan oleh owner YOGSSTORE"
+        //   );
+        //   return;
+        // } else if (
+        //   textMsg.toLowerCase() === "ml" ||
+        //   textMsg.toLowerCase() === `${prefix}ml`
+        // ) {
+        //   reply(
+        //     `Mau top up berapa ? dan mana ID nya ?\n\nFormat : ML [kode] [id_player] [id_zona]\n\nContoh 1 : ML 5 6464331474 15140`
+        //   );
+        // } else {
+        //   const idProduct = textMsg.split(" ")[1];
+        //   const idPlayer = textMsg.split(" ")[2];
+        //   const idZona = textMsg.split(" ")[3];
+        //   orderML(idProduct.toUpperCase(), idPlayer, idZona, sender, m, sock);
+        // }
         break;
 
       //========================== CASE CEK STATUS TRANSAKSI ==========================//

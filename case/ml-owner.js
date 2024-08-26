@@ -97,6 +97,7 @@ async function orderML(idProduk, idPlayer, idZona, sender, msg, socket) {
   };
 
   const id = idMap[idProduk] || null;
+  // console.log(id);
 
   const apiData = new FormData();
   apiData.append("api_key", global.apikey);
